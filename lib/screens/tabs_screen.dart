@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 
 import "./categories_screen.dart";
+import './favorites_screen.dart';
 import "../models/meal.dart";
 
 class TabsScreen extends StatefulWidget {
@@ -26,15 +27,15 @@ class _TabsScreenState extends State<TabsScreen> {
         "page": const CategoriesScreen(),
       },
       {
-        "title": "Categories",
-        "page": const CategoriesScreen(),
+        'page': FavoritesScreen(widget.favouriteMeals),
+        'title': 'Your Favorite',
       },
     ];
     super.initState();
   }
 
   void _selectPage(int index) {
-    print("updating page");
+    print("updating page " + index.toString());
     setState(() {
       _selectedPageIndex = index;
     });

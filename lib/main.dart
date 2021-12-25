@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meals_app/screens/category_meals_screen.dart';
+import 'package:flutter_meals_app/screens/meal_detail_screen.dart';
 
 import "./dummy_data.dart";
 import "./screens/tabs_screen.dart";
-// import "./screens/meal_detail_screen.dart";
+import "./screens/meal_detail_screen.dart";
 import "./screens/categories_screen.dart";
 // import "./screens/filters_screen.dart";
 import "./models/meal.dart";
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void toggleFavourite(String mealId) {
+  void _toggleFavourite(String mealId) {
     final existingIndex = _favouriteMeals.indexWhere((meal) => meal.id == mealId);
     if (existingIndex >= 0) {
       setState(() {
@@ -81,6 +82,7 @@ class _MyAppState extends State<MyApp> {
         "/": (ctx) => TabsScreen(_favouriteMeals),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavourite, _isMealFavorite),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
