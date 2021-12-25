@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import "./dummy_data.dart";
-// import "./screens/tabs_screen.dart";
+import "./screens/tabs_screen.dart";
 // import "./screens/meal_detail_screen.dart";
 import "./screens/categories_screen.dart";
 // import "./screens/filters_screen.dart";
@@ -75,9 +75,18 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      home: const Scaffold(
-        body: CategoriesScreen(),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/": (ctx) => TabsScreen(_favouriteMeals),
+      },
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
+      },
     );
   }
 
