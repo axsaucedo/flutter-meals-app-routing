@@ -6,7 +6,7 @@ import "./dummy_data.dart";
 import "./screens/tabs_screen.dart";
 import "./screens/meal_detail_screen.dart";
 import "./screens/categories_screen.dart";
-// import "./screens/filters_screen.dart";
+import "./screens/filters_screen.dart";
 import "./models/meal.dart";
 
 void main() => runApp(MyApp());
@@ -83,6 +83,7 @@ class _MyAppState extends State<MyApp> {
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavourite, _isMealFavorite),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
