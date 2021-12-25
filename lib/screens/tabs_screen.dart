@@ -34,6 +34,7 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   void _selectPage(int index) {
+    print("updating page");
     setState(() {
       _selectedPageIndex = index;
     });

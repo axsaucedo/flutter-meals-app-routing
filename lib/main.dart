@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meals_app/screens/category_meals_screen.dart';
 
 import "./dummy_data.dart";
 import "./screens/tabs_screen.dart";
@@ -78,13 +79,15 @@ class _MyAppState extends State<MyApp> {
       initialRoute: "/",
       routes: {
         "/": (ctx) => TabsScreen(_favouriteMeals),
+        CategoryMealsScreen.routeName: (ctx) =>
+            CategoryMealsScreen(_availableMeals),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => const CategoriesScreen(),
         );
       },
     );
